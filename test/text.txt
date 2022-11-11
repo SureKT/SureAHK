@@ -1,2 +1,0 @@
-git remote add origin https://github.com/SureKT/SureAHK
-git push -u origin master
