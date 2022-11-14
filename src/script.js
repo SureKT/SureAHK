@@ -1,16 +1,22 @@
+// VARIABLES
 const infoDiv = document.querySelector(".info");
-const sounds = [
-  new Audio("key1.mp3"),
-  new Audio("key2.mp3")
-];
+var keys = document.querySelectorAll('.key');
+var key;
 
-const keyPlay = () => {
-  const n = Math.random() * 1;
-  const i = n > 0.96 ? 1 : ~~n;
-  sounds[i].currentTime = 0;
-  sounds[i].play();
-};
+// SOUNDS
+// const sounds = [
+//   new Audio("key1.mp3"),
+//   new Audio("key2.mp3")
+// ];
 
+// const keyPlay = () => {
+//   const n = Math.random() * 1;
+//   const i = n > 0.96 ? 1 : ~~n;
+//   sounds[i].currentTime = 0;
+//   sounds[i].play();
+// };
+
+// KEYDOWN
 addEventListener("keydown", (ev) => {
   const key = ev.code.toLowerCase();
   const keyDiv = document.querySelector(`#${key}`) ?? null;
@@ -33,6 +39,7 @@ addEventListener("keydown", (ev) => {
   infoDiv.textContent = `Se ha pulsado la tecla '${key}' ${ev.key} (${ev.keyCode})`;
 });
 
+// KEYUP
 addEventListener("keyup", (ev) => {
   const key = ev.code.toLowerCase();
   const keyDiv = document.querySelector(`#${key}`) ?? null;
@@ -41,4 +48,19 @@ addEventListener("keyup", (ev) => {
   if (!keyDiv) { return; }
 
   keyDiv.classList.remove("pressed");
+});
+
+// MOUSEOVER
+addEventListener("mouseover", (ev) => {
+  for (var i = 0; i < keys.length; i++) {
+    keys[i].addEventListener('mouseenter', function (e) {
+      key = document.querySelector('.key:hover');
+
+      infoDiv.textContent = key.id;
+      key.classList.add("pressed");
+    });
+    keys[i].addEventListener('mouseleave', function (e) {
+      key.classList.remove("pressed");
+    });
+  }
 });
