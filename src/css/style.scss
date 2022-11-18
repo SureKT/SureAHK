@@ -1,7 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 :root {
   --font-family: "Open Sans", sans-serif;
+
+  --text-color1: #444444;
+  --text-color2: #555555;
+
+  --keyboard-top: #bdbdbd;
+  --keyboard-right: #d3d3d3;
+  --keyboard-bottom: #ececec;
+  --keyboard-left: #e4e4e4;
+  --keyboard-right-inset: #ffffff;
+  --keyboard-bottom-inset: #cccccc;
+
+  --keyboard-bgradient1: #f4f4f6;
+  --keyboard-bgradient2: #eeeeee;
+
+  --keyboard-hole: #6d6d6d;
+
+  --key-bg: #ffffff;
+  --key-bgradient1: #999999;
+  --key-bgradient2: #ffffff;
+
+  --key-pressed-box: #ffffff;
+  --key-pressed-bg: #dddddd;
+
+  --key-before-bgradient1: #e8e8e8;
+  --key-before-bgradient2: #fbfbfb;
+  --key-before-box: #ffffff;
+}
+
+[data-theme="dark"] {
+  --text-color1: #ffffff;
+  --text-color2: #ffffff;
+
+  --keyboard-top: #444444;
+  --keyboard-right: #838383;
+  --keyboard-bottom: #3f3f3f;
+  --keyboard-left: #696969;
+  --keyboard-right-inset: #4b4b4b;
+  --keyboard-bottom-inset: #4d4d4d;
+
+  --keyboard-bgradient1: #3d3d3d;
+  --keyboard-bgradient2: #5c5c5c;
+
+  --keyboard-hole: #838383;
+
+  --key-bg: #575757;
+  --key-bgradient1: #3d3d3d;
+  --key-bgradient2: #494949;
+
+  --key-pressed-box: #9e9e9e;
+  --key-pressed-bg: #8a8a8a;
+  
+  --key-before-bgradient1: #4b4b4b;
+  --key-before-bgradient2: #7a7a7a;
+  --key-before-box: #555555;
 }
 
 body {
@@ -21,14 +77,14 @@ body {
   height: 230px;
   padding: 16px;
   box-shadow:
-    0 4px 1px #bdbdbd,
-    3px 0 1px #d3d3d3,
-    0 -2px 1px #ececec,
-    -2px 0 1px #e4e4e4,
-    0 2px 1px #fff inset,
-    0 -4px 4px #ccc inset;
+    0 4px 1px var(--keyboard-top),
+    3px 0 1px var(--keyboard-right),
+    0 -2px 1px var(--keyboard-bottom),
+    -2px 0 1px var(--keyboard-left),
+    0 2px 1px var(--keyboard-right) inset,
+    0 -4px 4px var(--keyboard-bottom) inset;
   border-radius: 5px;
-  background: linear-gradient(to bottom, #f4f4f6, #eee);
+  background: linear-gradient(to bottom, var(--keyboard-bgradient1), var(--keyboard-bgradient2));
   display: grid;
   grid-template-columns: 3.2fr 0.7fr 1fr;
   user-select: none;
@@ -195,7 +251,7 @@ body {
   /* Utility Classes */
   & .hole {
     display: flex;
-    background: #6d6d6d;
+    background: var(--keyboard-hole);
     border-radius: 5px;
     margin: 4px;
 
@@ -209,8 +265,8 @@ body {
   & .key {
     width: var(--width, 32px);
     height: var(--height, 32px);
-    background: #fff;
-    background: radial-gradient(circle at 65% 40%, #999, #fff);
+    background: var(--key-bg);
+    background: radial-gradient(circle at 65% 40%, var(--key-bgradient1), var(--key-bgradient2));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -222,22 +278,22 @@ body {
       transform: translateY(2px);
 
       &::before {
-        box-shadow: 0 0 4px #fff;
-        background: #ddd;
+        box-shadow: 0 0 4px var(--key-pressed-box);
+        background: var(--key-pressed-bg);
       }
     }
 
     & .special {
       display: block;
       position: absolute;
-      color: #444;
+      color: var(--text-color2);
       font-size: 8px;
       transform: translate(-6px, -6px);
     }
 
     &::before {
-      background: linear-gradient(140deg, #e8e8e8, #fbfbfb);
-      box-shadow: 0 0 2px 2px #fff;
+      background: linear-gradient(140deg, var(--key-before-bgradient1), var(--key-before-bgradient2));
+      box-shadow: 0 0 2px 2px var(--key-before-box);
       border-radius: 3px;
       transform: translateY(-2px);
       display: flex;
@@ -252,7 +308,7 @@ body {
 
     &::before,
     &::after {
-      color: #555;
+      color: var(--text-color1);
       text-transform: capitalize;
       font-family: var(--font-family);
       font-weight: bold;
@@ -359,7 +415,7 @@ body {
   background: rgb(180, 180, 180);
   padding: 5px 15px;
   border-radius: 5px;
-  color: rgb(0, 0, 0);
+  color: var(--text-color1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -369,4 +425,64 @@ body {
 
 .info:empty {
   background: transparent;
+}
+
+// TOGGLE
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+
+  em {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked+.slider {
+  background-color: #66bb6a;
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
