@@ -47,7 +47,11 @@
 }
 
 body {
+<<<<<<< HEAD
   font-family: ubuntu;
+=======
+  zoom: 150%;
+>>>>>>> 60b2bab406c56f4dd6e2666a33d4fd72ce72e3ae
   margin: 0;
   background-color: #a0a0a0;
 }
@@ -351,7 +355,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-family);
   text-shadow: 1px 1px 3px #ddd;
 }
 
@@ -364,15 +368,19 @@ body {
   align-items: center;
 }
 .theme-switch-wrapper span {
+<<<<<<< HEAD
+=======
+  font-family: var(--font-family);
+>>>>>>> 60b2bab406c56f4dd6e2666a33d4fd72ce72e3ae
   margin-left: 10px;
   font-size: 1rem;
 }
 
 .theme-switch {
   display: inline-block;
-  height: 34px;
+  height: 24px;
   position: relative;
-  width: 60px;
+  width: 50px;
 }
 
 .theme-switch input {
@@ -394,11 +402,11 @@ body {
   background-color: #fff;
   bottom: 4px;
   content: "";
-  height: 26px;
+  height: 16px;
   left: 4px;
   position: absolute;
   transition: 0.4s;
-  width: 26px;
+  width: 16px;
 }
 
 input:checked + .slider {
