@@ -1,27 +1,80 @@
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="css/normalize.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../res/pageLogo.png">
-    <script type="module" src="./script.js"></script>
     <title>Sure AHK</title>
+    <link rel="icon" href="../res/pageLogo.png">
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="../tools/bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="../tools/bootstrap-5.2.3-dist/js/"></script>
+    <script src="../tools/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CSS Normalize (I don't know if it's needed with bootstrap) -->
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom Javascript -->
+    <script type="module" src="script.js"></script>
+
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" aria-current="page">Home <span
+                                class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="#">Action 1</a>
+                            <a class="dropdown-item" href="#">Action 2</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex my-2 my-lg-0">
+                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
-     <input type="checkbox" id="checkbox" />
-     <div class="slider round"></div>
-   </label>
-     <em>Enable Dark Mode!</em>
-   </div>
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <span>Enable Dark Mode!</span>
+    </div>
 
-    <div class="container">
+    <div class="containerC">
         <div class="keyboard">
             <div class="main-keys">
                 <div class="function-keys">
@@ -177,12 +230,8 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="keyboard">
-            <div class="info"></div>
+    <div class="info"></div>
 
-        </div>
-    </div>
 </body>
 
 </html>
