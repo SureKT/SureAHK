@@ -62,7 +62,6 @@
 
 body {
   font-family: ubuntu;
-  zoom: 150%;
   margin: 0;
   background-color: #a0a0a0;
 }
@@ -76,6 +75,7 @@ body {
 }
 
 .keyboard {
+  box-sizing: content-box;
   width: 765px;
   height: 230px;
   padding: 16px;
